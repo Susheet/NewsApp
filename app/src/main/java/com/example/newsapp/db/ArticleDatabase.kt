@@ -14,13 +14,13 @@ abstract class ArticleDatabase : RoomDatabase() {
     abstract fun getArticleDao(): ArticleDao
 
     companion object{
-        @Volatile
+        @Volatile                    //other threads can see when a thread changes this instance
         private var instance: ArticleDatabase? = null
-        private val LOCK = Any()
+        private val LOCK = Any()     //to synchronise that only one instance is there
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
             instance ?: createDatabase(context).also{ instance = it}
-        }
+        }  //above block ensures that other threads dont set this instance while this is being set
 
         private fun createDatabase(context: Context) =
             Room.databaseBuilder(

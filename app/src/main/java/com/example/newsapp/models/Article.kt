@@ -13,7 +13,7 @@ data class Article(
     val content: String,
     val description: String,
     val publishedAt: String,
-    val source: Source,
+    val source: Source,   //Room can only handle primitive datatypes , so type converter to tell room how to interpret it
     val title: String,
     val url: String,
     val urlToImage: String
