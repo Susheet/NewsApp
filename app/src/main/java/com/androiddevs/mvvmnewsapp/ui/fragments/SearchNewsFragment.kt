@@ -76,11 +76,11 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
         })
     }
     private fun hideProgressBar() {
-        paginationProgressBar.visibility = View.INVISIBLE
+        ProgressBar.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        paginationProgressBar.visibility = View.VISIBLE
+        ProgressBar.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView() {
